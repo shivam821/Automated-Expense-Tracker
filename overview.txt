@@ -1,0 +1,68 @@
+Project Outline: Automated Expense Tracker
+📌 Project Overview:
+A Python-based expense tracker that automatically reads transaction details from SMS or email notifications, categorizes expenses, and generates monthly reports.
+
+🎯 Features:
+✅ Read transaction details from SMS or email.
+✅ Store expense data in a database (SQLite/MySQL).
+✅ Categorize transactions automatically (e.g., Food, Bills, Shopping, Travel).
+✅ Provide a dashboard with expense summaries.
+✅ Generate monthly reports in CSV/PDF format.
+
+1️⃣ Project Workflow
+1️⃣ Extract transaction details
+
+Read SMS using android-sms-backup (for mobile) or integrate Gmail API for email parsing.
+Use regex to extract transaction amount, merchant name, and category.
+2️⃣ Store in Database
+
+Save extracted transaction details into SQLite/MySQL.
+3️⃣ Categorize Expenses
+
+Use predefined rules or machine learning for category assignment.
+4️⃣ Generate Reports
+
+Show expenses by category, merchant, and month.
+Generate CSV/PDF reports using Pandas.
+2️⃣ Database Structure
+📁 Tables and Schema:
+1. users (If multi-user system)
+Column Name	Data Type	Description
+user_id	INT (PK)	Unique user identifier
+name	VARCHAR(100)	User's full name
+email	VARCHAR(100)	User's email ID
+password	VARCHAR(255)	Hashed password
+created_at	DATETIME	Account creation date
+2. transactions
+Column Name	Data Type	Description
+transaction_id	INT (PK)	Unique transaction identifier
+user_id	INT (FK)	Foreign key referencing users
+date	DATETIME	Transaction date
+amount	DECIMAL(10,2)	Transaction amount
+category_id	INT (FK)	Foreign key referencing categories
+merchant	VARCHAR(100)	Merchant/store name
+payment_mode	VARCHAR(50)	(Card, Cash, UPI, Netbanking, etc.)
+transaction_type	VARCHAR(20)	(Credit/Debit)
+3. categories
+Column Name	Data Type	Description
+category_id	INT (PK)	Unique category identifier
+category_name	VARCHAR(100)	Expense category name (e.g., Food, Travel)
+4. reports (Optional, for saving reports)
+Column Name	Data Type	Description
+report_id	INT (PK)	Unique report identifier
+user_id	INT (FK)	Foreign key referencing users
+generated_on	DATETIME	Report generation date
+file_path	VARCHAR(255)	Path to stored report file
+3️⃣ Implementation Plan
+📌 Step 1: Extract Transactions
+Use Regex to extract amount, date, and merchant from SMS/email.
+Store extracted data in SQLite/MySQL.
+📌 Step 2: Categorize Transactions
+Map merchants to predefined categories.
+Use machine learning (optional) to improve accuracy.
+📌 Step 3: Generate Reports
+Use Pandas to summarize expenses.
+Create CSV/PDF reports for visualization.
+📌 Step 4: Develop a Simple UI (Optional)
+Build a Streamlit or Flask app for a web-based dashboard.
+Display graphs and insights using matplotlib or seaborn.

@@ -91,7 +91,7 @@ def transcation(userDisplayname,userEmail):
       def transactionNotification():
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
-        s.login("snehaarcon@gmail.com", "okns hqvc bwrz oieq")
+        s.login("x", "x")
         subject = "Transaction Inserted"
         message_body = f"""
                   Hello {userDisplayname},
@@ -147,7 +147,7 @@ def generateReport(userDisplayname,userEmail):
             def transactionNotification():
               s = smtplib.SMTP('smtp.gmail.com', 587)
               s.starttls()
-              s.login("snehaarcon@gmail.com", "okns hqvc bwrz oieq")
+              s.login("x", "x")
               subject = "Transaction Report Generated"
               message_body = f"""
                         Hello {userDisplayname},
